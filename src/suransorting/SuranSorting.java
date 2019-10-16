@@ -43,7 +43,7 @@ public class SuranSorting {
                             break;
                     }
                     // Sort them alphabetically
-                    for (int i = index; i < names.size(); i++) {
+                    for (int i = index+1; i < names.size(); i++) {
                         if (newString.length() < names.get(i).length()) {
                             break;
                         }
