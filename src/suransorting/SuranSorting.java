@@ -14,14 +14,17 @@ public class SuranSorting {
        them to an arraylist while dynamically sorting them by length, then by
        alphabet
      */
+    private static ArrayList<String> names = new ArrayList();
+
     public static void main(String[] args) {
-        File file = new File("test\\names.txt");
+        File inputFile = new File("Unsorted1.txt");
+        File outputFile = new File("SortAttempt1.txt");
+        //File file = new File("G:\\Semester 5\\CSC 499\\Homework 1\\SuranSorting\\test\\names.txt");
         String newString;
-        ArrayList<String> names = new ArrayList();
 
         BufferedReader br = null;
         try {
-            br = new BufferedReader(new FileReader(file));
+            br = new BufferedReader(new FileReader(inputFile));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(SuranSorting.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -31,7 +34,7 @@ public class SuranSorting {
             while ((newString = br.readLine()) != null) {
                 newString = newString.trim();
                 // Verify the string is at least length 1, excluding white space
-                // If valid, sort the values dynamically while adding them
+                // If valid, puts the value in the appropriate spot
                 int index = 0;
                 if (newString.length() > 0) {
                     // Sort them by length
@@ -65,10 +68,24 @@ public class SuranSorting {
             Logger.getLogger(SuranSorting.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        //Print out sorted names
-        for (int i = 0; i < names.size(); i++) {
-            System.out.println(names.get(i));
+        try {
+            //Write the sorted list to the output file
+            writeToFile(outputFile);
+        } catch (IOException ex) {
+            Logger.getLogger(SuranSorting.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+    }
+
+    private static void writeToFile(File output) throws IOException {
+        String str = "Hello";
+        BufferedWriter writer = new BufferedWriter(new FileWriter(output));
+        for (int i = 0; i < names.size()-1; i++) {
+            writer.write(names.get(i) + "\n");
+        }
+        writer.write(names.get(names.size()-1));
+
+        writer.close();
     }
 
 }
