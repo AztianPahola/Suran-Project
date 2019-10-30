@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.Scanner;
 
 /**
  * @author Chase Dawson
@@ -11,16 +12,19 @@ import java.util.logging.Logger;
 public class SuranSorting {
 
     /* This application takes the strings contained in test/names.txt and adds 
-       them to an arraylist while dynamically sorting them by length, then by
-       alphabet
+     * them to an arraylist while dynamically sorting them by length, then by
+     * alphabet
+     *
+     * 
      */
     private static ArrayList<String> names = new ArrayList();
 
     public static void main(String[] args) {
         File inputFile = new File("Unsorted1.txt");
         File outputFile = new File("SortAttempt1.txt");
-        //File file = new File("G:\\Semester 5\\CSC 499\\Homework 1\\SuranSorting\\test\\names.txt");
         String newString;
+
+        String input = getUserInput();
 
         BufferedReader br = null;
         try {
@@ -39,18 +43,35 @@ public class SuranSorting {
                 if (newString.length() > 0) {
                     // Sort them by length
                     for (int i = 0; i < names.size(); i++) {
-                        if (newString.length() > names.get(i).length()) {
-                            index++;
+                        // Determine which string should be longer, depending on
+                        // Whether we are ascending or descending
+                        if (input.equalsIgnoreCase("A")) {
+                            if (newString.length() > names.get(i).length()) {
+                                index++;
+                            } else {
+                                break;
+                            }
                         } else {
-                            break;
+                            if (newString.length() < names.get(i).length()) {
+                                index++;
+                            } else {
+                                break;
+                            }
                         }
+
                     }
                     // Sort them alphabetically
                     for (int i = index; i < names.size(); i++) {
-                        if (newString.length() < names.get(i).length()) {
-                            break;
+                        if (input.equalsIgnoreCase("A")) {
+                            if (newString.length() < names.get(i).length()) {
+                                break;
+                            }
                         }
-
+                        else{
+                            if (newString.length() > names.get(i).length()) {
+                                break;
+                            }
+                        }
                         String compareString = names.get(i);
                         int charIndex = 0;
 
@@ -77,13 +98,32 @@ public class SuranSorting {
 
     }
 
-    private static void writeToFile(File output) throws IOException {
-        String str = "Hello";
-        BufferedWriter writer = new BufferedWriter(new FileWriter(output));
-        for (int i = 0; i < names.size()-1; i++) {
-            writer.write(names.get(i) + "\n");
+    private static String getUserInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Please enter 'A' to sort the strings ascending by length or\n"
+                + "enter 'D' to sort them descending by length.");
+        String response = scanner.next();
+
+        while (!response.equalsIgnoreCase("A") && !response.equalsIgnoreCase("D")) {
+            System.out.println("Please enter 'A' to sort the strings ascending by length or\n"
+                    + " enter 'D' to sort them descending by length.");
+            response = scanner.next();
         }
-        writer.write(names.get(names.size()-1));
+        scanner.close();
+        return response;
+    }
+
+    private static void writeToFile(File output) throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter(output));
+        for (int i = 0; i < names.size() - 1; i++) {
+            // Write to file
+            writer.write(names.get(i) + "\n");
+            // Writes to terminal
+            System.out.println(names.get(i));
+        }
+        writer.write(names.get(names.size() - 1));
+        System.out.println(names.get(names.size() - 1));
+        System.out.println("\nThis sorted list is stored in SortAttempt1");
 
         writer.close();
     }
