@@ -22,9 +22,7 @@ public class SuranSorting {
     public static void main(String[] args) {
         File inputFile = new File("Unsorted1.txt");
         File outputFile = new File("SortAttempt1.txt");
-        String newString;
-
-        String input = getUserInput();
+        String input;
 
         BufferedReader br = null;
         try {
@@ -33,6 +31,14 @@ public class SuranSorting {
             Logger.getLogger(SuranSorting.class.getName()).log(Level.SEVERE, null, ex);
         }
 
+        // If argument ascending or descending is given with program call
+        if ((args.length > 0) && (args[0].equalsIgnoreCase("A") || args[0].equalsIgnoreCase("D"))) {
+            input = args[0];
+        } else { // Retrieve argument for ascending or descending from user in the console
+            input = getUserInput();
+        }
+
+        String newString;
         // Add all the names to the array list
         try {
             while ((newString = br.readLine()) != null) {
@@ -66,8 +72,7 @@ public class SuranSorting {
                             if (newString.length() < names.get(i).length()) {
                                 break;
                             }
-                        }
-                        else{
+                        } else {
                             if (newString.length() > names.get(i).length()) {
                                 break;
                             }
