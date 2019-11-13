@@ -6,12 +6,14 @@ Prerequisites:
 
 Instructions:
 A. Running the sort program
+
 	1. To sort the text file named 'Unsorted1.txt', simply run the Sort.bat
 	2. The command prompt will ask you to enter 'A' to sort ascending by length or 'D' to sort
 	descending by length, enter the one you would like, or neither if you want to be requested
 	for 'A' or 'D' again.
 	3. After 'A', 'a', 'D', or 'd' is input, it will output the result of according sorting method as
 	well as write the output to 'SortAttempt1.txt'
+	
 B. Running automated test of the program
 	1. Run the 'TestSorting.bat' file.
 	2. This will output the results of both the ascending and descending sort and verify the worked 
