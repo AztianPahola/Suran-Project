@@ -4,10 +4,10 @@ jdk: oraclejdk8
 install: ant deps
 
 script: 
-#!/bin/bash
-echo ****************** Ascending Sort Test ******************
-java -jar SuranSorting/dist/SuranSorting.jar A
-diff SortAttempt1.txt SortedA1.txt
-echo ****************** Descending Sort Test ******************
-java -jar SuranSorting/dist/SuranSorting.jar D
-diff SortAttempt1.txt SortedD1.txt
+-#!/bin/bash
+-echo ****************** Ascending Sort Test ******************
+-java -jar SuranSorting/dist/SuranSorting.jar A
+-diff SortAttempt1.txt SortedA1.txt
+-echo ****************** Descending Sort Test ******************
+-java -jar SuranSorting/dist/SuranSorting.jar D
+-diff SortAttempt1.txt SortedD1.txt
