@@ -1,13 +1,10 @@
 language: java
-jdk: oraclejdk8
-
-install: ant deps
-
-script: 
-#!/bin/bash
-echo ****************** Ascending Sort Test ******************
-java -jar SuranSorting/dist/SuranSorting.jar A
-diff SortAttempt1.txt SortedA1.txt
-echo ****************** Descending Sort Test ******************
-java -jar SuranSorting/dist/SuranSorting.jar D
-diff SortAttempt1.txt SortedD1.txt
+jdk: oraclejdk9
+script:
+  - #!/bin/bash
+  - echo ****************** Ascending Sort Test ******************
+  - java -jar src/suransorting/SuranSorting.jar A > SortAttempt1.txt
+  - diff SortAttempt1.txt SortedA1.txt
+  - echo ****************** Descending Sort Test ******************
+  - java -jar src/suransorting/SuranSorting.jar D > SortAttempt1.txt
+  - diff SortAttempt1.txt SortedD1.txt
