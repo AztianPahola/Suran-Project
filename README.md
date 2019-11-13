@@ -5,6 +5,7 @@ Prerequisites:
 -Java APK on the target machine (Version 1.8+ recommended)
 
 Instructions:
+
 A. Running the sort program
 
 	1. To sort the text file named 'Unsorted1.txt', simply run the Sort.bat
@@ -15,6 +16,7 @@ A. Running the sort program
 	well as write the output to 'SortAttempt1.txt'
 	
 B. Running automated test of the program
+
 	1. Run the 'TestSorting.bat' file.
 	2. This will output the results of both the ascending and descending sort and verify the worked 
 	effectively, comparing the output to the correctly sorted text files.
