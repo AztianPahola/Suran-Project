@@ -2,9 +2,9 @@ language: java
 jdk: oraclejdk9
 script:
   - #!/bin/bash
-  - echo ****************** Ascending Sort Test ******************
+  - echo "****************** Ascending Sort Test ******************"
   - java -jar src/suransorting/SuranSorting.jar A > SortAttempt1.txt
   - diff SortAttempt1.txt SortedA1.txt
-  - echo ****************** Descending Sort Test ******************
+  - echo "****************** Descending Sort Test ******************"
   - java -jar src/suransorting/SuranSorting.jar D > SortAttempt1.txt
   - diff SortAttempt1.txt SortedD1.txt
