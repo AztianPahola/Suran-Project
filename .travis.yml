@@ -1,8 +1,6 @@
 language: java
 jdk: oraclejdk8
 
-install: ant deps
-
 script: 
 -#!/bin/bash
 -echo ****************** Ascending Sort Test ******************
