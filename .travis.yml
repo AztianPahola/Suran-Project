@@ -3,8 +3,8 @@ jdk: oraclejdk9
 script:
   - #!/bin/bash
   - echo ****************** Ascending Sort Test ******************
-  - java -jar /src/suransorting/SuranSorting.jar A
+  - java -jar src/suransorting/SuranSorting.jar A
   - diff SortAttempt1.txt SortedA1.txt
   - echo ****************** Descending Sort Test ******************
-  - java -jar /src/suransorting/SuranSorting.jar D
+  - java -jar src/suransorting/SuranSorting.jar D
   - diff SortAttempt1.txt SortedD1.txt
