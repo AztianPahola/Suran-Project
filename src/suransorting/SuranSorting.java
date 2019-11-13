@@ -128,8 +128,6 @@ public class SuranSorting {
         }
         writer.write(names.get(names.size() - 1));
         System.out.println(names.get(names.size() - 1));
-        System.out.println("\nThis sorted list is stored in SortAttempt1");
-
         writer.close();
     }
 
